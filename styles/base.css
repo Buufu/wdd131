@@ -96,6 +96,10 @@ main h1 {
     border-radius: 5px;
 }
 
+.uganda-flag {
+    width: 100px;
+}
+
 /* Resource List */
 .card ul {
     padding: 2rem;

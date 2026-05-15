@@ -3,37 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew Ssebuufu | WDD 131</title>
-    <link rel="stylesheet" href="style.css/layout.css">
+    <title>WDD 131 | Dynamic Web Fundamentals</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
      
     <header>
-        <h1>Header Content</h1>
+        <span id="course-title">WDD 131: Dynamic Web Fundamentals</span>
 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">I-Learn</a>
+            <a href="#">Scripture</a>
+            <a href="#">Final Project</a>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Main Content</h2>
-            <p>This is the main content area.</p>
+        <h1>Your Name Here</h1>
+
+        <section class="card">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Tell us about yourself. Include your background, interests, and what you enjoy doing in your free time.</p>
+                <img src="images/profile.jpg" alt="Profile Photo">
+            </div>
         </section>
 
-        <aside>
-            <h2>Sidebar</h2>
-            <p>This is sidebar content.</p>
-        </aside>
+        <section class="card">
+            <h2>Web Dev Resources</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/">MDN</a></li>
+                <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
+                <li><a href="https://w3schools.com/">W3Schools</a></li>
+                <li><a href="https://codepen.io/">CodePen</a></li>
+            </ul>
+        </section>
     </main>
 
     <footer>
-        <p>Footer Content</p>
+        <p>&copy; <span id="currentyear"></span> Your Name | Location</p>
+        <p id="lastModified"></p>
     </footer>
+
+    <script>
+        document.getElementById('currentyear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = 'Last Modified: ' + new Date(document.lastModified).toLocaleString();
+    </script>
     
 </body>
 </html>
