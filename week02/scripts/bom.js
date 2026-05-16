@@ -1,15 +1,27 @@
-const radiusOutput = document.getElementById('radius');
-const areaOutput = document.querySelector('area');
+const input = document.querySelector('#favchap');
+const button = document.querySelector('button');
+const list = document.querySelector('ul');
 
-let area = 0;
-const PI == 3.14159;
+function createChapterItem() {
+	if (!input.value.trim()) return;
+	const li = document.createElement('li');
+	const deleteButton = document.createElement('button');
 
-const radius = 10;
-area = PI * radius * radius;
-radiusOutput = radius;
-areaOutput = area;
+	li.textContent = input.value;
+	deleteButton.textContent = '❌';
+	deleteButton.setAttribute('aria-label', `Remove ${input.value}`);
 
-radius = 20;
-area = PI * radius * radius;
-radiusOutput = radius;
-areaOutput = area;
+	li.append(deleteButton);
+	list.append(li);
+	input.value = '';
+	input.focus();
+}
+
+button.addEventListener('click', createChapterItem);
+
+list.addEventListener('click', (e) => {
+	if (e.target.tagName === 'BUTTON') {
+		const item = e.target.closest('li');
+		if (item) item.remove();
+	}
+});
