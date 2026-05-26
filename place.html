@@ -22,11 +22,27 @@
   </header>
 
   <section class="hero">
-    <picture>
-      <source srcset="images/wildlife-480w.webp 480w, images/wildlife-800w.webp 800w, images/wildlife-1920w.webp 1920w" type="image/webp" sizes="100vw">
-      <source srcset="images/wildlife.png 1920w" type="image/png" sizes="100vw">
-      <img src="images/wildlife.png" alt="Landscape in Uganda" loading="lazy">
-    </picture>
+   <picture>
+  <source
+    srcset="
+      images/wildlife-480w.webp 480w,
+      images/wildlife-800w.webp 800w,
+      images/wildlife-1920w.webp 1920w
+    "
+    sizes="100vw"
+    type="image/webp">
+
+  <img
+    src="images/wildlife-800w.webp"
+    srcset="
+      images/wildlife-480w.webp 480w,
+      images/wildlife-800w.webp 800w,
+      images/wildlife-1920w.webp 1920w
+    "
+    sizes="100vw"
+    alt="Landscape in Uganda"
+    loading="lazy">
+  </picture>
   </section>
 
   <main class="hero-content">
