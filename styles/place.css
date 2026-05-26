@@ -3,6 +3,8 @@
   --green:#007a3d;
   --white:#ffffff;
   --text:#222;
+  --background:rgba(255,255,255,0.85);
+  --shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
 *{
@@ -14,6 +16,16 @@
 body{
   font-family:Arial, Helvetica, sans-serif;
   color:var(--text);
+  background:#f7f7f7;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg, rgba(199,0,57,0.1), rgba(0,122,61,0.05));
+  pointer-events:none;
+  z-index:-1;
 }
 
 /* HEADER */
@@ -30,10 +42,40 @@ body{
   font-size:3rem;
 }
 
+.site-header .header-inner{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  align-items:center;
+}
+
+.site-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:0.75rem;
+}
+
+.site-nav a{
+  color:white;
+  text-decoration:none;
+  padding:0.65rem 1rem;
+  border:1px solid rgba(255,255,255,0.7);
+  border-radius:999px;
+  transition:transform 0.2s ease, background-color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-2px);
+}
+
 /* HERO IMAGE */
 
 .hero{
   position:relative;
+  overflow:hidden;
 }
 
 .hero img{
@@ -45,14 +87,25 @@ body{
 
 .hero-content{
   position:relative;
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  gap:1rem;
+  padding:1rem;
 }
 
 /* CARDS */
 
 .card{
-  background:rgba(255,255,255,0.85);
+  background:var(--background);
   padding:1.5rem;
-  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  box-shadow:var(--shadow);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.18);
 }
 
 .card h2{
@@ -62,6 +115,12 @@ body{
   margin:-1.5rem -1.5rem 1rem -1.5rem;
 }
 
+.weather-icon{
+  width:48px;
+  display:block;
+  margin-bottom:1rem;
+}
+
 /* DESKTOP LAYOUT */
 
 @media screen and (min-width:800px){
@@ -69,24 +128,25 @@ body{
   .hero-content{
     position:absolute;
     top:180px;
-    left:0;
-    width:100%;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 40px);
+    max-width:1100px;
     pointer-events:none;
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    align-items:start;
+    gap:1.5rem;
   }
 
   .card{
-    width:320px;
+    width:100%;
     pointer-events:auto;
   }
 
-  .data-card{
-    margin-left:20px;
-  }
-
   .weather-card{
-    position:absolute;
-    right:20px;
-    bottom:-120px;
+    position:static;
+    align-self:end;
   }
 
   .weather-heading::after{
@@ -99,14 +159,17 @@ body{
 @media screen and (max-width:799px){
 
   .hero-content{
-    display:flex;
-    flex-direction:column;
+    display:grid;
     gap:1rem;
     padding:1rem;
   }
 
   .card{
     width:100%;
+  }
+
+  .site-header{
+    padding:1.5rem 1rem;
   }
 
   .weather-heading::after{
