@@ -3,20 +3,20 @@
   --red-soft:#c700391a;
   --green:#141615;
   --green-soft:#007a3d0d;
-  --white:#ffffff;
+  --white:#f5ecec;
   --white-70:#ffffffb3;
   --white-20:#ffffff33;
   --text:#222222;
   --background:#b4c1d1d9;
   --shadow:0 0 10px #00000033;
   --shadow-strong:#0000002e;
-  --surface:#f7f7f7;
+  --surface:#f8f3f3;
 }
 
 *{
   margin:0;
   padding:0;
-  box-sizing:border-box;
+  box-sizing:content-box;
 }
 
 body{
@@ -80,8 +80,8 @@ body::before{
 /* HERO IMAGE */
 
 .hero{
-  position:relative;
-  overflow:hidden;
+  position:static;
+  overflow:auto;
 }
 
 .hero img{
@@ -123,8 +123,9 @@ body::before{
 
 .weather-icon{
   width:48px;
-  display:block;
-  margin-bottom:1rem;
+  display:grid;
+  margin-bottom:2.4rem;
+  
 }
 
 /* DESKTOP LAYOUT */
@@ -134,25 +135,39 @@ body::before{
   .hero-content{
     position:absolute;
     top:180px;
-    left:50%;
-    transform:translateX(-50%);
-    width:calc(100% - 40px);
-    max-width:1100px;
+    left:0;
+    right:0;
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:1rem;
     pointer-events:none;
     display:grid;
-    grid-template-columns:1.2fr 0.8fr;
+    grid-template-columns:0.7fr 0.7fr;
+    grid-template-rows:auto 1fr;
     align-items:start;
     gap:1.5rem;
+    min-height:calc(100vh - 220px);
   }
 
   .card{
     width:100%;
+    max-width:none;
     pointer-events:auto;
   }
 
+  .data-card{
+    grid-column:1 / 2;
+    grid-row:1;
+    align-self:start;
+    justify-self:start;
+  }
+
   .weather-card{
-    position:static;
+    grid-column:2 / 3;
+    grid-row:2;
     align-self:end;
+    justify-self:end;
   }
 
   .weather-heading::after{
