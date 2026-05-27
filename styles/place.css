@@ -1,209 +1,204 @@
-:root{
-  --red:#2158aa;
-  --red-soft:#c700391a;
-  --green:#141615;
-  --green-soft:#007a3d0d;
-  --white:#f5ecec;
-  --white-70:#ffffffb3;
-  --white-20:#ffffff33;
-  --text:#222222;
-  --background:#b4c1d1d9;
-  --shadow:0 0 10px #00000033;
-  --shadow-strong:#0000002e;
-  --surface:#f8f3f3;
+/* ── CSS Variables ───────────────────────────────────────────── */
+:root {
+  --red:        #cc0000;
+  --green:      #007a3d;
+  --white:      #ffffff;
+  --text:       #222222;
+  --card-bg:    rgba(255, 255, 255, 0.93);
+  --shadow:     0 4px 20px rgba(0, 0, 0, 0.25);
 }
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:content-box;
+ 
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-body{
-  font-family:Arial, Helvetica, sans-serif;
-  color:var(--text);
-  background:var(--surface);
+ 
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--text);
+  background: #111;
 }
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(180deg, var(--red-soft), var(--green-soft));
-  pointer-events:none;
-  z-index:-1;
+ 
+/* ── Header ──────────────────────────────────────────────────── */
+.site-header {
+  background: var(--red);
+  border-bottom: 8px solid var(--green);
+  text-align: center;
+  padding: 1rem;
 }
-
-/* HEADER */
-
-.site-header{
-  background:var(--red);
-  color:var(--white);
-  text-align:center;
-  padding:2rem 1rem;
-  border-bottom:10px solid var(--green);
+ 
+.site-header h1 {
+  color: var(--white);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: bold;
+  letter-spacing: 0.04em;
 }
-
-.site-header h1{
-  font-size:3rem;
+ 
+/* ── Hero wrapper ────────────────────────────────────────────── */
+.hero-wrapper {
+  position: relative;
+  line-height: 0; /* remove inline gap under img */
 }
-
-.site-header .header-inner{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  align-items:center;
+ 
+.hero-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
-
-.site-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:0.75rem;
+ 
+/* ── Cards shared ────────────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
 }
-
-.site-nav a{
-  color:var(--white);
-  text-decoration:none;
-  padding:0.65rem 1rem;
-  border:1px solid var(--white-70);
-  border-radius:999px;
-  transition:transform 0.2s ease, background-color 0.2s ease;
+ 
+.card h2 {
+  background: var(--green);
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.55rem 1rem;
 }
-
-.site-nav a:hover,
-.site-nav a:focus{
-  background:var(--white-20);
-  transform:translateY(-2px);
+ 
+.card-body {
+  padding: 0.75rem 1rem 1rem;
 }
-
-/* HERO IMAGE */
-
-.hero{
-  position:static;
-  overflow:auto;
+ 
+.card-body p {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  padding: 0.3rem 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  line-height: 1.4;
 }
-
-.hero img{
-  width:100%;
-  display:block;
+ 
+.card-body p:last-child {
+  border-bottom: none;
 }
-
-/* FLOATING CONTENT */
-
-.hero-content{
-  position:relative;
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  gap:1rem;
-  padding:1rem;
+ 
+.card-body p strong {
+  text-align: right;
+  color: #333;
+  min-width: 105px;
 }
-
-/* CARDS */
-
-.card{
-  background:var(--background);
-  padding:1.5rem;
-  box-shadow:var(--shadow);
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
+ 
+.card-body p span {
+  min-width: 130px;
 }
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 16px 30px var(--shadow-strong);
+ 
+/* ── Footer ──────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--red);
+  color: var(--white);
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.9;
 }
-
-.card h2{
-  background:var(--green);
-  color:var(--white);
-  padding:1rem;
-  margin:-1.5rem -1.5rem 1rem -1.5rem;
+ 
+/* ════════════════════════════════════════════════════════════════
+   MOBILE  (< 800px)
+   Hero full-width image, then cards stacked below
+   ════════════════════════════════════════════════════════════════ */
+ 
+/* Cards flow in normal document flow below the image */
+.cards-overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
 }
-
-.weather-icon{
-  width:48px;
-  display:grid;
-  margin-bottom:2.4rem;
-  
+ 
+.card h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 0.7rem 1rem;
 }
-
-/* DESKTOP LAYOUT */
-
-@media screen and (min-width:800px){
-
-  .hero-content{
-    position:absolute;
-    top:180px;
-    left:0;
-    right:0;
-    width:100%;
-    max-width:none;
-    margin:0;
-    padding:1rem;
-    pointer-events:none;
-    display:grid;
-    grid-template-columns:0.7fr 0.7fr;
-    grid-template-rows:auto 1fr;
-    align-items:start;
-    gap:1.5rem;
-    min-height:calc(100vh - 220px);
+ 
+/* Center the data rows on mobile */
+.card-body p {
+  justify-content: center;
+}
+ 
+/* Weather SVG icon — visible on mobile */
+.weather-icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0.5rem auto 0.75rem;
+}
+ 
+/* No emoji on mobile */
+.weather-heading::after { content: ""; }
+ 
+/* Hero image: portrait on mobile */
+.hero-img {
+  max-height: 55vmax;
+}
+ 
+/* ════════════════════════════════════════════════════════════════
+   DESKTOP  (≥ 800px)
+   Cards are absolute-positioned over the hero image
+   ════════════════════════════════════════════════════════════════ */
+@media screen and (min-width: 800px) {
+ 
+  /* Cards sit inside hero-wrapper as an overlay */
+  .cards-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    pointer-events: none;
   }
-
-  .card{
-    width:100%;
-    max-width:none;
-    pointer-events:auto;
+ 
+  .card {
+    pointer-events: auto;
+    width: clamp(220px, 28vw, 340px);
   }
-
-  .data-card{
-    grid-column:1 / 2;
-    grid-row:1;
-    align-self:start;
-    justify-self:start;
+ 
+  /* Data card: top-left */
+  .data-card {
+    align-self: flex-start;
   }
-
-  .weather-card{
-    grid-column:2 / 3;
-    grid-row:2;
-    align-self:end;
-    justify-self:end;
+ 
+  /* Weather card: bottom-right */
+  .weather-card {
+    align-self: flex-end;
   }
-
-  .weather-heading::after{
-    content:" ⛅";
+ 
+  /* Restore left-aligned label/value layout on desktop */
+  .card h2 {
+    text-align: left;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
-}
-
-/* MOBILE LAYOUT */
-
-@media screen and (max-width:799px){
-
-  .hero-content{
-    display:grid;
-    gap:1rem;
-    padding:1rem;
+ 
+  .card-body p {
+    justify-content: flex-end;
   }
-
-  .card{
-    width:100%;
+ 
+  /* Hide SVG icon on desktop */
+  .weather-icon {
+    display: none;
   }
-
-  .site-header{
-    padding:1.5rem 1rem;
+ 
+  /* ⛅ emoji after "Weather" heading — desktop only */
+  .weather-heading::after {
+    content: " ⛅";
+    font-size: 1.1rem;
   }
-
-  .weather-heading::after{
-    content:"";
+ 
+  /* Hero image: landscape, tall enough for cards to overlay */
+  .hero-img {
+    max-height: 520px;
   }
-}
-
-/* FOOTER */
-
-.site-footer{
-  background:var(--red);
-  color:var(--white);
-  text-align:center;
-  padding:2rem 1rem;
-  margin-top:2rem;
 }

@@ -2,82 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Explore Uganda with weather details, key travel data, and a responsive hero image for the final project page.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Uganda with weather details, key travel data, and a responsive hero image.">
   <meta name="author" content="Andrew Ssebuufu">
-  <title>Place — Travel</title>
+  <title>Uganda — Place</title>
   <link rel="stylesheet" href="styles/place.css">
   <script src="scripts/place.js" defer></script>
 </head>
 <body>
+ 
   <header class="site-header">
-    <div class="header-inner">
-      <h1>Uganda</h1>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="temples.html">Temples</a>
-        <a href="place.html" aria-current="page">Place</a>
-      </nav>
-    </div>
+    <h1>Uganda</h1>
   </header>
+ 
+  <div class="hero-wrapper">
+ 
+    <picture>
+      <source
+        media="(max-width: 799px)"
+        srcset="images/wildlife4.png 480w, images/wildlife8.png 800w, images/wildlife1.png 1920w"
+        sizes="100vw"
+        type="image/png">
+      <source
+        media="(min-width: 800px)"
+        srcset="images/wildlife8.png 800w, images/wildlife1.png 1920w"
+        sizes="100vw"
+        type="image/png">
+      <img
+        src="images/wildlife8.png"
+        srcset="images/wildlife4.png 480w, images/wildlife8.png 800w, images/wildlife1.png 1920w"
+        sizes="100vw"
+        alt="Wildlife in Uganda"
+        class="hero-img"
+        loading="eager">
+    </picture>
 
-  <section class="hero">
-   <picture>
-  <source
-    srcset="
-      images/wildlife4.png 480w,
-      images/wildlife8.png 800w,
-      images/wildlife1.png 1920w
-    "
-    sizes="100vw"
-    type="image/webp">
-
-  <img
-    src="images/wildlife8.png"
-    srcset="
-      images/wildlife4.png 480w,
-      images/wildlife8.png 800w,
-      images/wildlife1.png 1920w
-    "
-    sizes="100vw"
-    alt="Landscape in Uganda"
-    loading="lazy">
-  </picture>
-  </section>
-
-  <main class="hero-content">
-
-  <section class="card data-card">
-    <h2>Data</h2>
-
-    <p><strong>Area:</strong> 241,038 sq km</p>
-    <p><strong>Population:</strong> 45,000,000</p>
-    <p><strong>Capital:</strong> Kampala</p>
-    <p><strong>Languages:</strong> English, Swahili</p>
-    <p><strong>Currency:</strong> Uganda Shilling</p>
-    <p><strong>Time Zone:</strong> UTC+3</p>
-    <p><strong>Calling Code:</strong> +256</p>
-    <p><strong>Internet TLD:</strong> .ug</p>
-  </section>
-
-  <section class="card weather-card">
-    <h2 class="weather-heading">Weather</h2>
-
-    <div class="weather">
-      <img src="images/weather-sun.svg" alt="" aria-hidden="true" class="weather-icon">
-      <p><strong>Temperature:</strong> <span id="temp">24</span> °C</p>
-      <p><strong>Wind:</strong> <span id="wind">12</span> km/h</p>
-      <p><strong>Wind Chill:</strong> <span id="windchill">—</span></p>
+    <!-- Cards: overlay hero on desktop, stack below on mobile -->
+    <div class="cards-overlay">
+ 
+      <section class="card data-card">
+        <h2>Data</h2>
+        <div class="card-body">
+          <p><strong>Area:</strong> <span>241,038 sq km</span></p>
+          <p><strong>Population:</strong> <span>45,741,000</span></p>
+          <p><strong>Capital:</strong> <span>Kampala</span></p>
+          <p><strong>Languages:</strong> <span>English, Swahili</span></p>
+          <p><strong>Currency:</strong> <span>Uganda Shilling</span></p>
+          <p><strong>Time Zone:</strong> <span>UTC+3</span></p>
+          <p><strong>Calling Code:</strong> <span>+256</span></p>
+          <p><strong>Internet TLD:</strong> <span>.ug</span></p>
+        </div>
+      </section>
+ 
+      <section class="card weather-card">
+        <h2 class="weather-heading">Weather</h2>
+        <div class="card-body">
+          <!-- SVG icon: mobile only -->
+          <img src="images/weather-sun.svg" alt="Partly cloudy weather icon" class="weather-icon">
+          <p><strong>Temperature:</strong> <span><span id="temp">10</span> °C</span></p>
+          <p><strong>Conditions:</strong> <span>Partly Cloudy</span></p>
+          <p><strong>Wind:</strong> <span><span id="wind">5</span> km/h</span></p>
+          <p><strong>Wind Chill:</strong> <span><span id="windchill">—</span> °C</span></p>
+        </div>
+      </section>
+ 
     </div>
-
-  </section>
-
-  </main>
-
+ 
+  </div><!-- /.hero-wrapper -->
+ 
   <footer class="site-footer">
-    <p id="copyright">© <span id="year"></span> Example Organization</p>
-    <p>Last modified: <span id="lastmod"></span></p>
+    <p>©<span id="year"></span> 🌸 Andrew Ssebuufu 🌸 Uganda</p>
+    <p>Last Modification: <span id="lastmod"></span></p>
   </footer>
-
+ 
 </body>
 </html>
