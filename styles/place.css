@@ -19,6 +19,7 @@ body {
   font-family: Georgia, 'Times New Roman', serif;
   color: var(--text);
   background: #111;
+  line-height: 1.5;
 }
  
 /* ── Header ──────────────────────────────────────────────────── */
@@ -44,8 +45,10 @@ body {
  
 .hero-img {
   width: 100%;
-  display: block;
+  max-height: 400px;
   object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
  
 /* ── Cards shared ────────────────────────────────────────────── */
@@ -86,8 +89,7 @@ body {
   min-width: 105px;
 }
  
-.card-body p span {
-  min-width: 130px;
+.card span { font-weight: bold; 
 }
  
 /* ── Footer ──────────────────────────────────────────────────── */
