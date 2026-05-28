@@ -1,11 +1,14 @@
 /* ── CSS Variables ───────────────────────────────────────────── */
 :root {
-  --red:        #cc0000;
-  --green:      #0b0c0c;
-  --white:      #ffffff;
-  --text:       #222222;
-  --card-bg:    rgba(255, 255, 255, 0.93);
-  --shadow:     0 4px 20px rgba(0, 0, 0, 0.25);
+  --red:            #cc0000;
+  --green:          #0b0c0c;
+  --white:          #ffffff;
+  --text:           #222222;
+  --text-muted:     #333333;
+  --background:     #111111;
+  --card-bg:        #ffffffee;
+  --border-color:   #00000012;
+  --shadow:         0 4px 20px #00000040;
 }
  
 /* ── Reset ───────────────────────────────────────────────────── */
@@ -18,7 +21,7 @@
 body {
   font-family: Georgia, 'Times New Roman', serif;
   color: var(--text);
-  background: #111;
+  background: var(--background);
 }
  
 /* ── Header ──────────────────────────────────────────────────── */
@@ -74,7 +77,7 @@ body {
   gap: 0.4rem;
   padding: 0.3rem 0;
   font-size: 0.88rem;
-  border-bottom: 1px solid rgba(0,0,0,0.07);
+  border-bottom: 1px solid var(--border-color);
   line-height: 1.4;
 }
  
@@ -84,7 +87,7 @@ body {
  
 .card-body p strong {
   text-align: right;
-  color: #333;
+  color: var(--text-muted);
   min-width: 105px;
 }
  
