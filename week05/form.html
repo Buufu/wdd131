@@ -1,444 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Andrew Ssebuufu">
-  <title>Product Review</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/form.css" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Review Form">
+    <title>Product Review</title>
 
-    :root {
-      --cream: #faf6ef;
-      --cream-dark: #f0e9dc;
-      --forest: #1a3a2a;
-      --forest-mid: #2c5c3f;
-      --gold: #b8860b;
-      --gold-light: #d4a94a;
-      --text: #2a2016;
-      --muted: #7a6a54;
-      --border: #c8bba8;
-      --red: #8b2500;
-    }
+    <link rel="stylesheet" href="css/form.css">
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--text);
-      font-family: 'Lora', Georgia, serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── Header ── */
-    header {
-      background: var(--forest);
-      padding: 2rem 1.5rem 1.8rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        rgba(255,255,255,.03) 20px,
-        rgba(255,255,255,.03) 21px
-      );
-    }
-    header .eyebrow {
-      font-family: 'Lora', serif;
-      font-size: .7rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: .5rem;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 7vw, 3.2rem);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.1;
-    }
-    header .subtitle {
-      margin-top: .6rem;
-      font-size: .85rem;
-      color: rgba(255,255,255,.55);
-      font-style: italic;
-    }
-
-    /* ── Main layout ── */
-    main {
-      flex: 1;
-      padding: 2.5rem 1rem 3rem;
-    }
-
-    .form-card {
-      max-width: 640px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 4px 24px rgba(26,58,42,.07);
-    }
-
-    /* ── Field groups ── */
-    .field-group {
-      margin-bottom: 2rem;
-    }
-    .field-group:last-of-type { margin-bottom: 0; }
-
-    label, .field-label {
-      display: block;
-      font-weight: 600;
-      font-size: .95rem;
-      margin-bottom: .5rem;
-      color: var(--forest);
-    }
-    .optional-tag {
-      font-weight: 400;
-      font-size: .78rem;
-      color: var(--gold);
-      margin-left: .4rem;
-      font-style: italic;
-    }
-    .hint {
-      font-size: .78rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: .6rem;
-      display: block;
-    }
-
-    /* ── Inputs ── */
-    select, input[type="date"], input[type="text"], textarea {
-      width: 100%;
-      padding: .65rem .9rem;
-      border: 1.5px solid var(--border);
-      border-radius: 3px;
-      font-family: 'Lora', serif;
-      font-size: .9rem;
-      color: var(--text);
-      background: var(--cream);
-      transition: border-color .2s, box-shadow .2s;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a3a2a' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right .9rem center;
-      padding-right: 2.5rem;
-      cursor: pointer;
-    }
-    select:focus, input[type="date"]:focus, input[type="text"]:focus, textarea:focus {
-      outline: none;
-      border-color: var(--forest-mid);
-      box-shadow: 0 0 0 3px rgba(44,92,63,.12);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-      line-height: 1.6;
-    }
-
-    /* ── Star rating ── */
-    .star-rating {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .star-rating .star-option {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .35rem;
-      cursor: pointer;
-    }
-    .star-rating input[type="radio"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 1.2rem;
-      height: 1.2rem;
-      border: 2px solid var(--border);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-      position: relative;
-    }
-    .star-rating input[type="radio"]:checked {
-      background: var(--forest);
-      border-color: var(--forest);
-    }
-    .star-rating input[type="radio"]:checked::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: .45rem; height: .45rem;
-      background: #fff;
-      border-radius: 50%;
-    }
-    .star-rating input[type="radio"]:focus {
-      outline: 2px solid var(--forest-mid);
-      outline-offset: 2px;
-    }
-    .star-label {
-      font-size: 1rem;
-      color: var(--gold);
-      letter-spacing: .05em;
-      line-height: 1;
-    }
-
-    /* ── Checkboxes ── */
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: .65rem;
-    }
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      cursor: pointer;
-    }
-    .checkbox-item input[type="checkbox"] {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 1.15rem;
-      height: 1.15rem;
-      border: 2px solid var(--border);
-      border-radius: 2px;
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-      position: relative;
-    }
-    .checkbox-item input[type="checkbox"]:checked {
-      background: var(--forest);
-      border-color: var(--forest);
-    }
-    .checkbox-item input[type="checkbox"]:checked::after {
-      content: '';
-      position: absolute;
-      top: 1px; left: 4px;
-      width: 5px; height: 9px;
-      border: 2px solid #fff;
-      border-top: none; border-left: none;
-      transform: rotate(42deg);
-    }
-    .checkbox-item input[type="checkbox"]:focus {
-      outline: 2px solid var(--forest-mid);
-      outline-offset: 2px;
-    }
-    .checkbox-item span {
-      font-size: .9rem;
-      color: var(--text);
-    }
-
-    /* ── Divider ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--cream-dark);
-      margin: 2rem 0;
-    }
-
-    /* ── Submit button ── */
-    .btn-submit {
-      display: block;
-      width: 100%;
-      padding: .95rem;
-      background: var(--forest);
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background .2s, transform .1s;
-      margin-top: 2rem;
-    }
-    .btn-submit:hover { background: var(--forest-mid); }
-    .btn-submit:active { transform: scale(.99); }
-    .btn-submit:focus {
-      outline: 3px solid var(--gold-light);
-      outline-offset: 2px;
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--forest);
-      color: rgba(255,255,255,.65);
-      text-align: center;
-      padding: 1.4rem 1rem;
-      font-size: .8rem;
-      line-height: 1.8;
-    }
-    footer strong { color: rgba(255,255,255,.9); }
-
-    /* ── Responsive ── */
-    @media (max-width: 480px) {
-      .form-card { padding: 1.8rem 1.2rem; }
-      .star-rating { gap: .6rem; }
-    }
-  </style>
+    <script src="js/form.js" defer></script>
 </head>
+
 <body>
 
 <header>
-  <p class="eyebrow">Share Your Experience</p>
-  <h1>Product Review</h1>
-  <p class="subtitle">Your feedback helps others make better choices.</p>
+    <h1>Product Review</h1>
 </header>
 
 <main>
-  <form method="get" action="review.html" id="reviewForm" novalidate>
-    <div class="form-card">
 
-      <!-- Product Name -->
-      <div class="field-group">
-        <label for="productName">Product Name</label>
+<form method="get" action="review.html">
+
+    <!-- Product Name -->
+    <div class="form-group">
+        <label for="productName">
+            Product Name <span class="required">*</span>
+        </label>
+
         <select id="productName" name="productName" required>
-          <option value="" disabled selected hidden>Select a Product ...</option>
+            <option value="" disabled selected>
+                Select a Product ...
+            </option>
         </select>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Overall Rating -->
-      <div class="field-group">
-        <span class="field-label" id="ratingLabel">Overall Rating</span>
-        <div class="star-rating" role="group" aria-labelledby="ratingLabel">
-          <label class="star-option" for="rating1">
-            <span class="star-label" aria-hidden="true">&#9733;</span>
-            <input type="radio" id="rating1" name="rating" value="1" required aria-label="1 star" />
-          </label>
-          <label class="star-option" for="rating2">
-            <span class="star-label" aria-hidden="true">&#9733;&#9733;</span>
-            <input type="radio" id="rating2" name="rating" value="2" aria-label="2 stars" />
-          </label>
-          <label class="star-option" for="rating3">
-            <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;</span>
-            <input type="radio" id="rating3" name="rating" value="3" aria-label="3 stars" />
-          </label>
-          <label class="star-option" for="rating4">
-            <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;</span>
-            <input type="radio" id="rating4" name="rating" value="4" aria-label="4 stars" />
-          </label>
-          <label class="star-option" for="rating5">
-            <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <input type="radio" id="rating5" name="rating" value="5" aria-label="5 stars" />
-          </label>
-        </div>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Date of Installation -->
-      <div class="field-group">
-        <label for="installDate">Date of Installation</label>
-        <input type="date" id="installDate" name="installDate" required />
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Useful Features -->
-      <div class="field-group">
-        <span class="field-label" id="featuresLabel">Which features did you find useful?</span>
-        <span class="hint">Check all that apply</span>
-        <div class="checkbox-group" role="group" aria-labelledby="featuresLabel">
-          <label class="checkbox-item" for="feat-durability">
-            <input type="checkbox" id="feat-durability" name="features" value="Durability" />
-            <span>Durability</span>
-          </label>
-          <label class="checkbox-item" for="feat-ease">
-            <input type="checkbox" id="feat-ease" name="features" value="Ease of Use" />
-            <span>Ease of Use</span>
-          </label>
-          <label class="checkbox-item" for="feat-performance">
-            <input type="checkbox" id="feat-performance" name="features" value="Performance" />
-            <span>Performance</span>
-          </label>
-          <label class="checkbox-item" for="feat-design">
-            <input type="checkbox" id="feat-design" name="features" value="Design" />
-            <span>Design</span>
-          </label>
-          <label class="checkbox-item" for="feat-value">
-            <input type="checkbox" id="feat-value" name="features" value="Value for Money" />
-            <span>Value for Money</span>
-          </label>
-        </div>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- Written Review -->
-      <div class="field-group">
-        <label for="writtenReview">Written Review <span class="optional-tag">(Optional)</span></label>
-        <textarea id="writtenReview" name="writtenReview" placeholder="Tell us what you think about the product…" rows="5"></textarea>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- User Name -->
-      <div class="field-group">
-        <label for="userName">Your Name <span class="optional-tag">(Optional)</span></label>
-        <input type="text" id="userName" name="userName" placeholder="e.g. Jane Smith" autocomplete="name" />
-      </div>
-
-      <!-- Submit -->
-      <input type="submit" class="btn-submit" value="Post Review" />
-
     </div>
-  </form>
+
+    <!-- Rating -->
+    <fieldset class="form-group">
+        <legend>
+            Overall Rating <span class="required">*</span>
+        </legend>
+
+        <div class="rating">
+
+            <label>
+                <input type="radio" name="rating" id="rating1" value="1" required>
+                ☆
+            </label>
+
+            <label>
+                <input type="radio" name="rating" id="rating2" value="2">
+                ☆☆
+            </label>
+
+            <label>
+                <input type="radio" name="rating" id="rating3" value="3">
+                ☆☆☆
+            </label>
+
+            <label>
+                <input type="radio" name="rating" id="rating4" value="4">
+                ☆☆☆☆
+            </label>
+
+            <label>
+                <input type="radio" name="rating" id="rating5" value="5">
+                ☆☆☆☆☆
+            </label>
+
+        </div>
+    </fieldset>
+
+    <!-- Date -->
+    <div class="form-group">
+        <label for="installDate">
+            Date of Installation <span class="required">*</span>
+        </label>
+
+        <input
+            type="date"
+            id="installDate"
+            name="installDate"
+            required>
+    </div>
+
+    <!-- Features -->
+    <fieldset class="form-group">
+        <legend>Useful Features</legend>
+
+        <label>
+            <input type="checkbox"
+                   id="durability"
+                   name="features"
+                   value="Durability">
+            Durability
+        </label>
+
+        <label>
+            <input type="checkbox"
+                   id="ease"
+                   name="features"
+                   value="Ease of Use">
+            Ease of Use
+        </label>
+
+        <label>
+            <input type="checkbox"
+                   id="performance"
+                   name="features"
+                   value="Performance">
+            Performance
+        </label>
+
+        <label>
+            <input type="checkbox"
+                   id="design"
+                   name="features"
+                   value="Design">
+            Design
+        </label>
+    </fieldset>
+
+    <!-- Written Review -->
+    <div class="form-group">
+        <label for="review">
+            Written Review
+        </label>
+
+        <textarea
+            id="review"
+            name="review"
+            rows="6"></textarea>
+    </div>
+
+    <!-- User Name -->
+    <div class="form-group">
+        <label for="username">
+            User Name
+        </label>
+
+        <input
+            type="text"
+            id="username"
+            name="username">
+    </div>
+
+    <input
+        type="submit"
+        value="Post Review"
+        class="submit-btn">
+
+</form>
+
 </main>
 
 <footer>
-  <p><strong>&copy;2024 Product Review</strong></p>
-  <p>Last Modification: <span id="lastMod"></span></p>
+    <p>
+        ©2024 🌺 Rubia Magdelena Francesco 🌺 Madagascar
+    </p>
+    <p id="lastModified"></p>
 </footer>
-
-<script>
-  // ── Products array ──
-  const products = [
-    { id: "fc-1888", name: "Flux Capacitor",      averagerating: 4.5 },
-    { id: "fc-2050", name: "Power Laces",          averagerating: 4.7 },
-    { id: "fs-1987", name: "Time Circuits",        averagerating: 3.5 },
-    { id: "ac-2000", name: "Low Voltage Reactor",  averagerating: 3.9 },
-    { id: "jj-1969", name: "Warp Equalizer",       averagerating: 5.0 }
-  ];
-
-  // ── Populate select dynamically ──
-  const select = document.getElementById('productName');
-  products.forEach(p => {
-    const opt = document.createElement('option');
-    opt.value = p.id;
-    opt.textContent = p.name;
-    select.appendChild(opt);
-  });
-
-  // ── Last modified timestamp ──
-  const modEl = document.getElementById('lastMod');
-  const d = new Date(document.lastModified);
-  modEl.textContent = d.toLocaleDateString('en-US', {
-    month:'2-digit', day:'2-digit', year:'numeric'
-  }) + ' ' + d.toLocaleTimeString('en-US', { hour12: false });
-</script>
 
 </body>
 </html>

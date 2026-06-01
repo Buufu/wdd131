@@ -1,9 +1,130 @@
-@media screen and (max-width: 480px) {
-  .form-card {
-    padding: 1.8rem 1.2rem;
-  }
+:root{
+    --primary:#4b004f;
+    --background:#ece7ec;
+    --white:#ffffff;
+    --text:#111111;
+}
 
-  .star-rating {
-    gap: .6rem;
-  }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--background);
+    color:var(--text);
+    line-height:1.6;
+}
+
+header{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:1.5rem;
+}
+
+main{
+    max-width:800px;
+    margin:auto;
+    padding:1rem;
+}
+
+form{
+    background:#d8d1d8;
+    padding:2rem;
+    border-radius:10px;
+}
+
+.form-group{
+    margin-bottom:1.5rem;
+}
+
+label,
+legend{
+    display:block;
+    font-weight:bold;
+    margin-bottom:.5rem;
+}
+
+.required{
+    color:red;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:.8rem;
+    border:1px solid #999;
+    border-radius:5px;
+}
+
+fieldset{
+    border:none;
+}
+
+.rating{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:1rem;
+}
+
+.rating label{
+    text-align:center;
+    font-size:1.3rem;
+    cursor:pointer;
+}
+
+.rating input{
+    width:auto;
+    display:block;
+    margin:auto;
+}
+
+fieldset label{
+    display:block;
+    margin-bottom:.5rem;
+}
+
+fieldset input[type="checkbox"]{
+    width:auto;
+    margin-right:.5rem;
+}
+
+.submit-btn{
+    background:var(--primary);
+    color:white;
+    font-size:1.2rem;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    opacity:.9;
+}
+
+.confirmation{
+    text-align:center;
+    min-height:60vh;
+    padding-top:3rem;
+}
+
+footer{
+    margin-top:2rem;
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:1.5rem;
+}
+
+@media screen and (min-width:768px){
+
+.rating{
+    justify-content:space-around;
+}
+
 }
