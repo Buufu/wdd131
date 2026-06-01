@@ -313,7 +313,7 @@
       <div class="field-group">
         <label for="productName">Product Name</label>
         <select id="productName" name="productName" required>
-          <option value="" disabled selected>Select a Product ...</option>
+          <option value="" disabled selected hidden>Select a Product ...</option>
         </select>
       </div>
 
@@ -323,23 +323,23 @@
       <div class="field-group">
         <span class="field-label" id="ratingLabel">Overall Rating</span>
         <div class="star-rating" role="group" aria-labelledby="ratingLabel">
-          <label class="star-option">
+          <label class="star-option" for="rating1">
             <span class="star-label" aria-hidden="true">&#9733;</span>
             <input type="radio" id="rating1" name="rating" value="1" required aria-label="1 star" />
           </label>
-          <label class="star-option">
+          <label class="star-option" for="rating2">
             <span class="star-label" aria-hidden="true">&#9733;&#9733;</span>
             <input type="radio" id="rating2" name="rating" value="2" aria-label="2 stars" />
           </label>
-          <label class="star-option">
+          <label class="star-option" for="rating3">
             <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;</span>
             <input type="radio" id="rating3" name="rating" value="3" aria-label="3 stars" />
           </label>
-          <label class="star-option">
+          <label class="star-option" for="rating4">
             <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;</span>
             <input type="radio" id="rating4" name="rating" value="4" aria-label="4 stars" />
           </label>
-          <label class="star-option">
+          <label class="star-option" for="rating5">
             <span class="star-label" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
             <input type="radio" id="rating5" name="rating" value="5" aria-label="5 stars" />
           </label>
@@ -361,23 +361,23 @@
         <span class="field-label" id="featuresLabel">Which features did you find useful?</span>
         <span class="hint">Check all that apply</span>
         <div class="checkbox-group" role="group" aria-labelledby="featuresLabel">
-          <label class="checkbox-item">
+          <label class="checkbox-item" for="feat-durability">
             <input type="checkbox" id="feat-durability" name="features" value="Durability" />
             <span>Durability</span>
           </label>
-          <label class="checkbox-item">
+          <label class="checkbox-item" for="feat-ease">
             <input type="checkbox" id="feat-ease" name="features" value="Ease of Use" />
             <span>Ease of Use</span>
           </label>
-          <label class="checkbox-item">
+          <label class="checkbox-item" for="feat-performance">
             <input type="checkbox" id="feat-performance" name="features" value="Performance" />
             <span>Performance</span>
           </label>
-          <label class="checkbox-item">
+          <label class="checkbox-item" for="feat-design">
             <input type="checkbox" id="feat-design" name="features" value="Design" />
             <span>Design</span>
           </label>
-          <label class="checkbox-item">
+          <label class="checkbox-item" for="feat-value">
             <input type="checkbox" id="feat-value" name="features" value="Value for Money" />
             <span>Value for Money</span>
           </label>
