@@ -1,0 +1,9 @@
+@media screen and (max-width: 480px) {
+  .form-card {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .star-rating {
+    gap: .6rem;
+  }
+}
