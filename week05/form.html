@@ -35,89 +35,44 @@
     </div>
 
     <!-- Rating -->
-    <fieldset class="form-group">
-        <legend>
-            Overall Rating <span class="required">*</span>
-        </legend>
+    <fieldset class="form-group features">
+    <legend>
+        Which features did you find useful in the product?
+        <br>
+        <em>(Check all that apply)</em>
+    </legend>
 
-        <div class="rating">
+    <label for="durability">
+        <input type="checkbox"
+               id="durability"
+               name="features"
+               value="Durability">
+        Durability
+    </label>
 
-            <label>
-                <input type="radio" name="rating" id="rating1" value="1" required>
-                ☆
-            </label>
+    <label for="ease">
+        <input type="checkbox"
+               id="ease"
+               name="features"
+               value="Ease of Use">
+        Ease of Use
+    </label>
 
-            <label>
-                <input type="radio" name="rating" id="rating2" value="2">
-                ☆☆
-            </label>
+    <label for="performance">
+        <input type="checkbox"
+               id="performance"
+               name="features"
+               value="Performance">
+        Performance
+    </label>
 
-            <label>
-                <input type="radio" name="rating" id="rating3" value="3">
-                ☆☆☆
-            </label>
-
-            <label>
-                <input type="radio" name="rating" id="rating4" value="4">
-                ☆☆☆☆
-            </label>
-
-            <label>
-                <input type="radio" name="rating" id="rating5" value="5">
-                ☆☆☆☆☆
-            </label>
-
-        </div>
-    </fieldset>
-
-    <!-- Date -->
-    <div class="form-group">
-        <label for="installDate">
-            Date of Installation <span class="required">*</span>
-        </label>
-
-        <input
-            type="date"
-            id="installDate"
-            name="installDate"
-            required>
-    </div>
-
-    <!-- Features -->
-    <fieldset class="form-group">
-        <legend>Useful Features</legend>
-
-        <label>
-            <input type="checkbox"
-                   id="durability"
-                   name="features"
-                   value="Durability">
-            Durability
-        </label>
-
-        <label>
-            <input type="checkbox"
-                   id="ease"
-                   name="features"
-                   value="Ease of Use">
-            Ease of Use
-        </label>
-
-        <label>
-            <input type="checkbox"
-                   id="performance"
-                   name="features"
-                   value="Performance">
-            Performance
-        </label>
-
-        <label>
-            <input type="checkbox"
-                   id="design"
-                   name="features"
-                   value="Design">
-            Design
-        </label>
+    <label for="design">
+        <input type="checkbox"
+               id="design"
+               name="features"
+               value="Design">
+        Design
+    </label>
     </fieldset>
 
     <!-- Written Review -->
@@ -155,7 +110,7 @@
 
 <footer>
     <p>
-        ©2024 🌺 Rubia Magdelena Francesco 🌺 Madagascar
+        ©2026 🌺Andrew Ssebuufu 🌺 Uganda
     </p>
     <p id="lastModified"></p>
 </footer>
