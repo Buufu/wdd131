@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Swimming World — Learn techniques, equipment recommendations, and tips to improve your swimming.">
+    <meta name="author" content="Andrew Ssebuufu">
+    <title>Swimming World - Home</title>
+    <link rel="stylesheet" href="styles/swimming.css">
+</head>
+<body>
+    <header>
+        <h1>Swimming World</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="techniques.html">Techniques</a>
+            <a href="equipment.html">Equipment</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="images/hero-swimming.jpg" alt="Swimmer in pool" class="hero-img" id="hero"/>
+            <div class="hero-content">
+                <h2>Welcome to Swimming World</h2>
+                <p id="welcome"></p>
+            </div>
+        </section>
+
+        <section class="intro">
+            <h2>Introduction to Swimming</h2>
+            <p>Swimming is an excellent full-body workout that builds endurance, muscle strength, and cardiovascular fitness while being gentle on joints.</p>
+        </section>
+
+        <section class="benefits">
+            <h2>Benefits of Swimming</h2>
+            <ul>
+                <li>Improves cardiovascular health</li>
+                <li>Builds muscle and endurance</li>
+                <li>Low-impact, suitable for many fitness levels</li>
+            </ul>
+        </section>
+
+        <section class="featured">
+            <h2>Featured Techniques</h2>
+            <div id="featured-list" class="cards">
+                <!-- Populated by JS with strokes preview -->
+            </div>
+        </section>
+
+        <section class="tip">
+            <h2>Swimming Tip of the Day</h2>
+            <p id="tip"></p>
+            <button id="newTip">Show Tip</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Andrew Ssebuufu</p>
+    </footer>
+
+    <script src="scripts/swimming.js" defer></script>
+</body>
+</html>

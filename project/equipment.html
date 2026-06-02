@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recommended swimming equipment for different skill levels, with quick suggestions.">
+    <meta name="author" content="Andrew Ssebuufu">
+    <title>Swimming World - Equipment</title>
+    <link rel="stylesheet" href="styles/swimming.css">
+</head>
+<body>
+    <header>
+        <h1>Equipment</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="techniques.html">Techniques</a>
+            <a href="equipment.html">Equipment</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Essential Gear</h2>
+            <ul>
+                <li>Goggles</li>
+                <li>Swim cap</li>
+                <li>Kickboard</li>
+                <li>Swim fins</li>
+            </ul>
+
+            <h3>Find a recommendation</h3>
+            <label for="level">Choose your level:</label>
+            <select id="level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+            <button id="getRec">Recommend</button>
+
+            <p id="recResult"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Andrew Ssebuufu</p>
+    </footer>
+
+    <script src="scripts/swimming.js" defer></script>
+</body>
+</html>
