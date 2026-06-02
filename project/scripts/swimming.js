@@ -5,6 +5,7 @@ const swimmingTip = {
     title: "Swimming Tip",
     text: "Practice breathing techniques regularly to improve endurance and relaxation in the water."
 };
+const swimmingVideoUrl = "https://www.youtube.com/watch?v=xVeXGKPOH58&t=2s";
 function displayTip() {
     const tipEl = document.querySelector('#tip');
     if (tipEl) tipEl.textContent = swimmingTip.text;
@@ -80,7 +81,12 @@ function showWelcome() {
 // Tip button
 function initTipButton() {
     const btn = document.querySelector('#newTip');
-    if (btn) btn.addEventListener('click', displayTip);
+    if (btn) {
+        btn.addEventListener('click', () => {
+            displayTip();
+            window.open(swimmingVideoUrl, '_blank');
+        });
+    }
 }
 
 // Lazy-load fallback: ensure images below hero use loading attribute (done in markup)
