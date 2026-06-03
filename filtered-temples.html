@@ -23,14 +23,16 @@
  <header>
     <h1>Temple Album</h1>
 
-    <button id="menu" aria-expanded="false" aria-controls="templesGallery" aria-label="Toggle navigation menu">☰</button>
+    <button id="menu" aria-expanded="false" aria-controls="templeNavList" aria-label="Toggle navigation menu">☰</button>
 
-    <nav class="navigation" aria-label="Temple filters">
-        <a href="#" data-filter="all">Home</a>
-        <a href="#" data-filter="old">Old</a>
-        <a href="#" data-filter="new">New</a>
-        <a href="#" data-filter="large">Large</a>
-        <a href="#" data-filter="small">Small</a>
+    <nav aria-label="Temple filters">
+        <ul id="templeNavList" class="navigation">
+            <li><a href="#" data-filter="all">Home</a></li>
+            <li><a href="#" data-filter="old">Old</a></li>
+            <li><a href="#" data-filter="new">New</a></li>
+            <li><a href="#" data-filter="large">Large</a></li>
+            <li><a href="#" data-filter="small">Small</a></li>
+        </ul>
     </nav>
  </header>
  

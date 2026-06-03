@@ -38,6 +38,10 @@ header h2 {
     transition: max-height 0.3s ease;
 }
 
+.navigation li {
+    list-style: none;
+}
+
 .navigation a {
     color: white;
     text-decoration: none;
