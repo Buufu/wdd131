@@ -1,15 +1,15 @@
 const menuButton = document.querySelector("#menu");
 const navigation = document.querySelector(".navigation");
 const gallery = document.querySelector("#templesGallery");
+const pageTitle = document.querySelector("#page-title");
+
+menuButton.setAttribute("aria-expanded", "false");
 
 menuButton.addEventListener("click", () => {
-        navigation.classList.toggle("open");
-
-        if (navigation.classList.contains("open")) {
-                menuButton.textContent = "✖";
-        } else {
-                menuButton.textContent = "☰";
-        }
+    navigation.classList.toggle("open");
+    const expanded = navigation.classList.contains("open");
+    menuButton.textContent = expanded ? "✖" : "☰";
+    menuButton.setAttribute("aria-expanded", expanded.toString());
 });
 
 // Temple data array (sample + 3 more)
@@ -170,13 +170,11 @@ document.querySelectorAll('.navigation a').forEach(a => {
     a.addEventListener('click', (e) => {
         e.preventDefault();
         const filter = a.dataset.filter || 'all';
-        // update main heading text
-        const heading = document.querySelector("#page-title");
-heading.textContent = a.textContent;
-        h1.textContent = a.textContent;
+        pageTitle.textContent = a.textContent;
         // close mobile nav
         navigation.classList.remove('open');
         menuButton.textContent = '☰';
+        menuButton.setAttribute('aria-expanded', 'false');
         filterTemples(filter === 'all' ? 'all' : filter);
     });
 });
