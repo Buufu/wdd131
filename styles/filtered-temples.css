@@ -11,13 +11,12 @@ body {
 }
 
 header {
-      background: #1367ac;
+    background: #1367ac;
     color: white;
     padding: 1rem;
-    text-align: center;
 }
 
-header h2 {
+header h1 {
     font-size: 1.5rem;
 }
 
@@ -29,9 +28,15 @@ header h2 {
     cursor: pointer;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+}
+
 .navigation {
     display: flex;
     flex-direction: column;
+    list-style: none;
     margin-top: 1rem;
     max-height: 0;
     overflow: hidden;
@@ -39,7 +44,7 @@ header h2 {
 }
 
 .navigation li {
-    list-style: none;
+    display: flex;
 }
 
 .navigation a {
@@ -47,6 +52,10 @@ header h2 {
     text-decoration: none;
     padding: 0.75rem;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 .navigation a:hover {
@@ -72,7 +81,7 @@ main h2 {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -91,46 +100,13 @@ figure:hover {
 figure img {
     width: 100%;
     border-radius: 10px;
-    display: block;
 }
 
 figcaption {
-    padding-top: 0.75rem;
+    text-align: center;
+    margin-top: 0.8rem;
+    font-weight: 500;
     color: #4b0082;
-}
-
-figcaption h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.35rem;
-}
-
-figcaption p {
-    font-size: 0.95rem;
-    color: #333;
-    margin: 0.15rem 0;
-}
-
-@media screen and (min-width: 800px) {
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .navigation {
-        flex-direction: row;
-        max-height: none;
-        margin-top: 0;
-    }
-
-    .navigation a {
-        margin-left: 1rem;
-    }
-
-    .gallery {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
-        gap: 1.5rem;
-    }
 }
 
 footer {
@@ -139,4 +115,29 @@ footer {
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
+}
+
+/* Desktop/Tablet view */
+@media (min-width: 768px) {
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        max-height: none;
+        margin-top: 0;
+    }
+
+    .navigation li {
+        flex: 1;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Desktop view */
+@media (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
